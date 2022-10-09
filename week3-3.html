@@ -1,0 +1,269 @@
+<!-- 
+    圖片每個id都要不同才能順利載入
+ -->
+
+ <!DOCTYPE html>
+ <html>
+ 
+ <head>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <meta charset="utf-8" />
+     <title>week 3</title>
+     <link rel="stylesheet" type="text/css" href="week3-3.css" />
+ </head>
+ 
+ <body>
+    <div class="frame">
+        <div class="left">My Website</div>
+        <div class="right">
+            <div class="item">Item 1</div>
+            <div class="item">Item 2</div>
+            <div class="item">Item 3</div>
+            <div class="item">Item 4</div>
+        </div>
+        <div class="mobile-menu">
+            <img class="icon" src="icon.webp" width="28" height="28"/>
+        </div>
+    </div>
+    <div class="headline">Welcome to MyHome</div>
+     <div class="content">
+         <div class="content_up">
+             <div class="content_left">
+                 <div class=photo_up>
+                 </div>
+             </div>
+             <div class="content_right">
+                 <div class=photo_up>
+ 
+                 </div>
+             </div>
+         </div>
+         <div class="content_down">
+            <div id="content_left2">
+                <div id="content_A">
+                </div>
+            </div>
+            <div id="content_left2">
+                <div id="content_2">
+                </div>
+            </div>
+            <div id="content_left2">
+                <div id="content_3">
+                </div>
+            </div>
+            <div id="content_left2">
+                <div id="content_4">
+                </div>
+            </div>
+
+        </div>
+        <div class="content_down">
+            <div id="content_left2">
+                <div id="content_6">
+                </div>
+            </div>
+            <div id="content_left2">
+                <div id="content_7">
+                </div>
+            </div>
+            <div id="content_left2">
+                <div id="content_8">
+                </div>
+            </div>
+            <div id="content_left2">
+                <div id="content_9">
+                </div>
+            </div>
+
+        </div>
+       
+        
+     </div>
+     <script>
+        function getData() {
+            fetch(
+                "https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json"
+            )
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) 
+                {
+                    let photo_array = [];
+                    let title = [];
+                    for (let i = 0; i < data.result.results.length; i++) 
+                    {
+                        photo_url = data.result.results[i].file;
+                        photo_first = photo_url.split("jpg");
+                        //console.log(photo_first[0]+"jpg");
+                        photo_array.push(photo_first[0] + "jpg");
+                        stitle = data.result.results[i].stitle;
+                        title.push(stitle);
+                    }
+
+                    let newDiv = document.createElement("div");
+                    newDiv.className = "prom";
+                    // 文字節點
+                    let textNode = document.createTextNode(title[0]);
+                    // 要放入的class
+                    let target = document.querySelector(".content_left");
+                    newDiv.appendChild(textNode);
+                    target.appendChild(newDiv);
+                    // 照片輸出
+
+                    var picture = document.createElement("img");
+                    picture.src = photo_array[0];
+                    picture.style.width = "80px";
+                    picture.style.height = "50px";
+                    document.querySelector(".content_left .photo_up").appendChild(picture);
+
+                    newDiv = document.createElement("div");
+                    newDiv.className = "prom";
+                    // 文字節點
+                    textNode = document.createTextNode(title[1]);
+                    // 要放入的class
+                    target = document.querySelector(".content_right");
+                    newDiv.appendChild(textNode);
+                    target.appendChild(newDiv);
+                    //照片輸出
+
+                    picture = document.createElement("img");
+                    picture.src = photo_array[1];
+                    picture.style.width = "80px";
+                    picture.style.height = "50px";
+                    document.querySelector(".content_right .photo_up").appendChild(picture);
+
+                   
+
+
+                    ////////////////////////
+                    //第一張圖
+                    var img = document.createElement("img");
+                    img.className="photo_down"
+                    img.src = photo_array[2];
+                    var src = document.getElementById("content_A");
+                    src.appendChild(img);
+
+                    newDiv = document.createElement("div");
+                    newDiv.id = "postion";
+                    // 文字節點
+                    textNode = document.createTextNode(title[2]);
+                    // 要放入的class
+                    target = document.getElementById("content_A");
+                    newDiv.appendChild(textNode);
+                    target.appendChild(newDiv);
+                    //////////////////////
+                    //第二張圖
+                    var img = document.createElement("img");
+                    img.className="photo_down"
+                    img.src = photo_array[3];
+                    var src = document.getElementById("content_2");
+                    src.appendChild(img);
+
+                    newDiv = document.createElement("div");
+                    newDiv.id = "postion";
+                    // 文字節點
+                    textNode = document.createTextNode(title[3]);
+                    // 要放入的class
+                    target = document.getElementById("content_2");
+                    newDiv.appendChild(textNode);
+                    target.appendChild(newDiv);
+
+                    //第三張圖
+                    var img = document.createElement("img");
+                    img.className="photo_down"
+                    img.src = photo_array[4];
+                    var src = document.getElementById("content_3");
+                    src.appendChild(img);
+
+                    newDiv = document.createElement("div");
+                    newDiv.id = "postion";
+                    // 文字節點
+                    textNode = document.createTextNode(title[4]);
+                    // 要放入的class
+                    target = document.getElementById("content_3");
+                    newDiv.appendChild(textNode);
+                    target.appendChild(newDiv);
+
+                    //第4張圖
+                    var img = document.createElement("img");
+                    img.className="photo_down"
+                    img.src = photo_array[5];
+                    var src = document.getElementById("content_4");
+                    src.appendChild(img);
+
+                    newDiv = document.createElement("div");
+                    newDiv.id = "postion";
+                    textNode = document.createTextNode(title[5]);
+                    // 要放入的class
+                    target = document.getElementById("content_4");
+                    newDiv.appendChild(textNode);
+                    target.appendChild(newDiv);
+
+                    //第5張圖
+                    var img = document.createElement("img");
+                    img.className="photo_down"
+                    img.src = photo_array[6];
+                    var src = document.getElementById("content_6");
+                    src.appendChild(img);
+
+                    newDiv = document.createElement("div");
+                    newDiv.id = "postion";
+                    textNode = document.createTextNode(title[6]);
+                    target = document.getElementById("content_6");
+                    newDiv.appendChild(textNode);
+                    target.appendChild(newDiv);
+                    //////////////////////
+                    //第 6張圖
+                    var img = document.createElement("img");
+                    img.className="photo_down"
+                    img.src = photo_array[7];
+                    var src = document.getElementById("content_7");
+                    src.appendChild(img);
+
+                    newDiv = document.createElement("div");
+                    newDiv.id = "postion";
+                    textNode = document.createTextNode(title[7]);
+                    target = document.getElementById("content_7");
+                    newDiv.appendChild(textNode);
+                    target.appendChild(newDiv);
+
+                    //第7張圖
+                    var img = document.createElement("img");
+                    img.className="photo_down"
+                    img.src = photo_array[8];
+                    var src = document.getElementById("content_8");
+                    src.appendChild(img);
+
+                    newDiv = document.createElement("div");
+                    newDiv.id = "postion";
+                    textNode = document.createTextNode(title[8]);
+                    target = document.getElementById("content_8");
+                    newDiv.appendChild(textNode);
+                    target.appendChild(newDiv);
+
+                    //第8張圖
+                    var img = document.createElement("img");
+                    img.className="photo_down"
+                    img.src = photo_array[9];
+                    var src = document.getElementById("content_9");
+                    src.appendChild(img);
+
+                    newDiv = document.createElement("div");
+                    newDiv.id = "postion";
+                    textNode = document.createTextNode(title[9]);
+                    target = document.getElementById("content_9");
+                    newDiv.appendChild(textNode);
+                    target.appendChild(newDiv);
+
+
+                
+                });
+         }
+ 
+         getData();
+ 
+     </script>
+ </body>
+ 
+ </html>
