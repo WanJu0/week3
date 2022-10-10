@@ -15,5 +15,5 @@ with open("data.csv","w",encoding="utf-8") as file:
             longitude=spot["longitude"]
             latitude=spot["latitude"]
             photo=spot["file"]
-            photo_split=photo.split("jpg")
-            file.write(spot["stitle"]+","+region[0:3]+","+longitude+","+latitude+","+photo_split[0]+"jpg"+"\n")
+            photo_split=photo.split("https")
+            file.write(spot["stitle"]+","+region[0:3]+","+longitude+","+latitude+","+"https"+photo_split[1]+"\n")

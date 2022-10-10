@@ -1,51 +1,45 @@
 body{
     margin: 0px;
 }
+
 .frame{
     display: flex;
     font-size: 20px;
     font-weight: bold;
-    align-items: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 
 }
-
 .mobile-menu{
     justify-content: flex-end;
     display: none;
 }
-.aside_menu{
-    display: none;
-}
-.aside_item{
-    font-size: 20px;
-    font-family: serif;
-    margin: 40px;
-    text-align: center;
-
+.img{
+    object-fit: cover
 }
 .icon{
     vertical-align: top;
 }
+
 .left{
-    flex: none;
+    flex: none;/* 固定配置*/
     width: 150px;
     text-align: center;
     font-family: serif;
+
+
 }
 .right{
-    display: flex;
+    display: flex;/* 讓下一層次項目水平排列 */
     justify-content: flex-end;
     flex: auto;
 }
-
 .item{
     flex: none;
     width: 100px;
     margin-right: 10px;
     text-align: center;
     font-family: serif;
+
 }
 
 .headline{
@@ -59,12 +53,12 @@ body{
     margin-bottom: 20px;
     font-family: serif;
 
+
 }
 .content{
    
     width: 1200px;
     margin: 0 auto;
-    background:#7d8086;
     
     
 }
@@ -91,42 +85,10 @@ body{
     width: 100%;
     display: flex;
 }
-.star{
-    position: absolute;
-    width: 30px;
-    right: 0;
-    padding: 10px;
-}
-#content_A{
-    position: relative;
-}
-#content_2{
-    position: relative;
-}
-#content_3{
-    position: relative;
-}
-#content_4{
-    position: relative;
-}
-#content_5{
-    position: relative;
-}
-#content_6{
-    position: relative;
-}
-#content_7{
-    position: relative;
-}
-#content_8{
-    position: relative;
-}
-#content_9{
-    position: relative;
-}
+
 #content_left2{
-    
-    display: flex;
+   
+   
     margin: 10px;
 
 }
@@ -134,19 +96,24 @@ body{
     max-width: 100%;
     vertical-align: top;
     width: 300px;
+
+    height: 200px;
+
 }
 
 #postion{
     background-color: #a6caeb;
-    font-size: 20px;
+    font-size: 17px;
     text-align: center;
     font-family: serif;
-    position: absolute;
+    
     bottom: 0px;
     width: 100%;
     height: 40px;
-    opacity: .5;
+   
     line-height: 40px;
+
+
 }
 .prom{
     font-size: 20px;
@@ -154,26 +121,35 @@ body{
     padding-left: 10px;
     font-family: serif;
 }
+
 @media(max-width:1200px){
+    
     .content{
         width: 90%;
        
+       
     }
     #content_left2{
-         width: 45%;
-         flex: auto;
-    }
-    .content_down{
-        flex-wrap: wrap;
-        
-    }
-    .photo_down{
-        max-width: 100%;
-        vertical-align: top;
-        width: 100%;
+        width: 45%;
+        flex: auto;
+   }
+   .content_down{
+       flex-wrap: wrap;
        
-       
-    }
+   }
+   .photo_down{
+       max-width: 100%;
+       vertical-align: top;
+       width: 100%;
+       height: auto;
+       aspect-ratio: 4/3;
+   }
+   #postion{
+    
+    font-size: 20px;
+    
+}
+    
 }
 
 @media(max-width:600px){
@@ -214,7 +190,9 @@ body{
         max-width: 100%;
         vertical-align: top;
         width: 100%;
+        height: auto;
        
        
     }
 }
+
